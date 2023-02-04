@@ -10,10 +10,10 @@ const Contact = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_nn5duxb",
-        "template_ekzov37",
+        process.env.EMAILJS_SERVICE_ID,
+        process.env.EMAILJS_TEMPLATE_ID,
         form.current,
-        "kclM9f838eGpUAqNj"
+        process.env.EMAILJS_PK,
       )
       .then(() => {
         Notify.success('Message sent successfully');
@@ -95,6 +95,7 @@ const Contact = () => {
                   autoComplete="name"
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                   placeholder="Full name"
+                  required
                 />
               </div>
               <div>
@@ -108,6 +109,7 @@ const Contact = () => {
                   autoComplete="email"
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                   placeholder="Email"
+                  required
                 />
               </div>
               <div>
@@ -121,6 +123,7 @@ const Contact = () => {
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
                   placeholder="Message"
                   defaultValue={""}
+                  required
                 />
               </div>
               <div>
