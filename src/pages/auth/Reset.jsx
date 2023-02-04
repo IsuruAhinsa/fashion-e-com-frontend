@@ -74,7 +74,7 @@ const Reset = () => {
 					<div className="pl-8 md:block hidden">
 						<img src={logo} alt="" className="w-32" />
 					</div>
-					<div className="flex items-start">
+					<div className="flex items-start sm:mt-0 mt-8">
 						<div>
 							<svg
 								width={22}

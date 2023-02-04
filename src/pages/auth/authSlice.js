@@ -5,6 +5,7 @@ const initialState = {
 	email: null,
 	username: null,
 	userId: null,
+	avatar: null,
 };
 
 const authSlice = createSlice({
@@ -16,12 +17,14 @@ const authSlice = createSlice({
             state.email = action.payload.email;
             state.username = action.payload.displayName;
             state.userId = action.payload.uid;
+			state.avatar = action.payload.photoURL;
 		},
 		REMOVE_ACTIVE_USER: (state) => {
 			state.isLoggedIn = false;
 			state.email = null;
 			state.username = null;
 			state.userId = null;
+			state.avatar = null;
 		}
 	},
 });

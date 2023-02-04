@@ -4,7 +4,6 @@ import {
   Bars3Icon,
   ShoppingBagIcon,
   XMarkIcon,
-  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import logo from "../assets/img/2.png";
 import { Link, NavLink } from "react-router-dom";
@@ -15,23 +14,19 @@ import { useSelector } from "react-redux";
 import useAuth from "../hooks/useAuth";
 
 const navigation = {
-  pages: [
-    { name: "Contact Us", to: "/contact" },
-  ],
+  pages: [{ name: "Contact Us", to: "/contact" }],
 };
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [displayName, setDisplayName] = useState("");
-  const cartTotalItems = useSelector(
-    (state) => (state.cart.cartItems).length
-  );
+  const cartTotalItems = useSelector((state) => state.cart.cartItems.length);
 
   const navigate = useNavigate();
 
   const authenticated = useAuth();
 
-  const { username, email } = useSelector((state) => state.auth);
+  const { username, email, avatar } = useSelector((state) => state.auth);
 
   const handleLogout = (event) => {
     event.preventDefault();
@@ -103,44 +98,72 @@ const Header = () => {
                   </button>
                 </div>
 
-                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
-                  {navigation.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <Link
-                        to={page.to}
-                        className="-m-2 block p-2 font-medium text-gray-900"
-                      >
-                        {page.name}
-                      </Link>
+                {authenticated && (
+                  <div className="space-y-6 border-t border-gray-200 py-6 px-4">
+                    <div className="flex text-sm font-medium text-gray-700 hover:text-gray-800 items-center hover:cursor-pointer">
+                      <img
+                        class="h-10 w-10 rounded-full mr-3"
+                        src={authenticated ? avatar : ""}
+                        alt=""
+                      />
+                      Hi, {displayName}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
 
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
-                  <div className="flow-root">
-                    <Link
-                      to="/login"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
-                      Sign in
-                    </Link>
-                  </div>
-                  <div className="flow-root">
-                    <Link
-                      to="/register"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
-                      Create account
-                    </Link>
-                  </div>
-                  <div className="flow-root">
-                    <Link
-                      to="/order-history"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
-                      Order History
-                    </Link>
-                  </div>
+                  {authenticated && (
+                    <>
+                      {navigation.pages.map((page) => (
+                        <div key={page.name} className="flow-root">
+                          <Link
+                            to={page.to}
+                            className="-m-2 block p-2 font-medium text-gray-900"
+                          >
+                            {page.name}
+                          </Link>
+                        </div>
+                      ))}
+
+                      <div className="flow-root">
+                        <Link
+                          to="/order-history"
+                          className="-m-2 block p-2 font-medium text-gray-900"
+                        >
+                          My Orders
+                        </Link>
+                      </div>
+
+                      <div className="flow-root">
+                        <Link
+                          onClick={handleLogout}
+                          className="-m-2 block p-2 font-medium text-gray-900"
+                        >
+                          Logout
+                        </Link>
+                      </div>
+                    </>
+                  )}
+                  {!authenticated && (
+                    <>
+                      <div className="flow-root">
+                        <Link
+                          to="/login"
+                          className="-m-2 block p-2 font-medium text-gray-900"
+                        >
+                          Sign in
+                        </Link>
+                      </div>
+                      <div className="flow-root">
+                        <Link
+                          to="/register"
+                          className="-m-2 block p-2 font-medium text-gray-900"
+                        >
+                          Create account
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -230,10 +253,12 @@ const Header = () => {
                   )}
 
                   {displayName && (
-                    <div
-                      className="text-sm font-medium text-gray-700 hover:text-gray-800 flex items-center hover:cursor-pointer"
-                    >
-                      <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
+                    <div className="text-sm font-medium text-gray-700 hover:text-gray-800 flex items-center hover:cursor-pointer">
+                      <img
+                        class="h-10 w-10 rounded-full mr-3"
+                        src={authenticated ? avatar : ""}
+                        alt=""
+                      />
                       Hi, {displayName}
                     </div>
                   )}

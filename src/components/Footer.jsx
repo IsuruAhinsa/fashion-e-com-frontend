@@ -9,8 +9,8 @@ const Footer = () => {
 		<footer className="p-4 sm:p-6 bg-gray-900">
 			<div className="md:flex md:justify-between">
 				<div className="mb-6 md:mb-0">
-					<Link to="/" className="flex items-center">
-						<img src={logo} className="h-60 mr-3" alt="" />
+					<Link to="/" className="flex items-center md:justify-center">
+						<img src={logo} className="w-24 mr-3" alt="" />
 					</Link>
 				</div>
 				<div className="grid grid-cols-2 gap-8">
