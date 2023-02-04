@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/img/1.png";
+import logo from "../../assets/img/2.png";
 import { Button, Card, Loader } from "../../components";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../firebase/config";
@@ -208,7 +208,7 @@ const Login = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 space-y-3">
                 <Button type="submit">Login</Button>
                 <p className="hover:text-gray-600 hover:underline">
                   <Link to="/reset">Forgot Password?</Link>
