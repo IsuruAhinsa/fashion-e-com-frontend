@@ -36,7 +36,7 @@ const Checkout = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4242/config").then(async (res) => {
+    fetch("https://fashion-e-com-api.onrender.com/config").then(async (res) => {
       const { publishableKey } = await res.json();
       setStripePromise(loadStripe(publishableKey));
     });
@@ -51,7 +51,7 @@ const Checkout = () => {
   useEffect(() => {
     Loading.standard();
 
-    fetch("http://localhost:4242/create-payment-intent", {
+    fetch("https://fashion-e-com-api.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
