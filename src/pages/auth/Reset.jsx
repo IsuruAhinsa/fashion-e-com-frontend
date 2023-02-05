@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Card } from "../../components";
-import logo from "../../assets/img/1.png";
+import logo from "../../assets/img/2.png";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase/config";
 
@@ -63,6 +63,7 @@ const Reset = () => {
 								placeholder="e.g: john@gmail.com"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
+								required
 							/>
 						</div>
 						<div className="mt-8">

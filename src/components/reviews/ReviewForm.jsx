@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { arrayUnion, doc, Timestamp, updateDoc } from "firebase/firestore";
 import StarsRating from "react-star-rate";
 import db from "../../firebase/config";
+import useAuth from "../../hooks/useAuth";
 
 const ReviewForm = ({ productId }) => {
   const [rate, setRate] = useState(0);
@@ -10,6 +11,9 @@ const ReviewForm = ({ productId }) => {
 
   const userId = useSelector((state) => state.auth.userId);
   const username = useSelector((state) => state.auth.username);
+  const avatar = useSelector((state) => state.auth.avatar);
+
+  const authenticated = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +23,7 @@ const ReviewForm = ({ productId }) => {
 
     const reviewConfig = {
       userId,
+      avatar,
       username,
       rate,
       review,
@@ -41,7 +46,7 @@ const ReviewForm = ({ productId }) => {
       <div className="flex-shrink-0">
         <img
           className="inline-block h-10 w-10 rounded-full"
-          src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          src={authenticated ? avatar : ''}
           alt=""
         />
       </div>

@@ -85,6 +85,7 @@ const Register = () => {
 									placeholder="Jhon"
 									value={firstName}
 									onChange={(e) => setFirstName(e.target.value)}
+									required
 								/>
 							</div>
 
@@ -104,6 +105,7 @@ const Register = () => {
 									placeholder="Smith"
 									value={lastName}
 									onChange={(e) => setLastName(e.target.value)}
+									required
 								/>
 							</div>
 
@@ -123,6 +125,7 @@ const Register = () => {
 									placeholder="e.g: john@gmail.com"
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
+									required
 								/>
 							</div>
 
@@ -141,6 +144,7 @@ const Register = () => {
 										className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
 										value={password}
 										onChange={(e) => setPassword(e.target.value)}
+										required
 									/>
 									<div
 										onClick={() => setShowPassword(!showPassword)}
@@ -198,6 +202,7 @@ const Register = () => {
 										className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
 										value={confirmPassword}
 										onChange={(e) => setConfirmPassword(e.target.value)}
+										required
 									/>
 									<div
 										onClick={() => setShowPassword(!showPassword)}

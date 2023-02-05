@@ -220,13 +220,13 @@ const AddProduct = () => {
                 />
                 <input type="hidden" name="imageURL" value={product.imageURL} />
               </div>
-              {product.image === "" ? null : (
+              {product.imageURL === "" ? null : (
                 <div className="mt-1 flex items-center">
                   <a
                     className="text-blue-700 underline hover:text-blue-500"
-                    href={product.image}
+                    href={product.imageURL}
                   >
-                    {product.image}
+                    {product.imageURL}
                   </a>
                 </div>
               )}

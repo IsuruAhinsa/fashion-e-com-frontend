@@ -48,7 +48,7 @@ const ProductRow = ({ product }) => {
         {product.name}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        {product.price}
+        ${(product.price).toFixed(2)}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
         {product.category}
@@ -56,7 +56,7 @@ const ProductRow = ({ product }) => {
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
         {product.brand}
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+      <td className="px-6 py-4 text-sm text-gray-500">
         {product.description}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-6">

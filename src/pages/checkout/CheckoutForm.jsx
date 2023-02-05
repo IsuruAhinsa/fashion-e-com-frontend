@@ -97,6 +97,7 @@ const CheckoutForm = () => {
                       id="address"
                       name="address"
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      required
                     />
                   </div>
                 </div>
@@ -116,6 +117,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={shippingAddress.apartment}
                       onChange={(e) => handleShipping(e)}
+                      required
                     />
                   </div>
                 </div>
@@ -135,6 +137,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={shippingAddress.city}
                       onChange={(e) => handleShipping(e)}
+                      required
                     />
                   </div>
                 </div>
@@ -154,6 +157,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={shippingAddress.state}
                       onChange={(e) => handleShipping(e)}
+                      required
                     />
                   </div>
                 </div>
@@ -174,6 +178,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={shippingAddress.postal_code}
                       onChange={(e) => handleShipping(e)}
+                      required
                     />
                   </div>
                 </div>
@@ -193,6 +198,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={shippingAddress.phone}
                       onChange={(e) => handleShipping(e)}
+                      required
                     />
                   </div>
                 </div>
@@ -246,6 +252,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={billingAddress.address}
                       onChange={(e) => handleBilling(e)}
+                      required={!checked}
                     />
                   </div>
                 </div>
@@ -285,6 +292,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={billingAddress.city}
                       onChange={(e) => handleBilling(e)}
+                      required={!checked}
                     />
                   </div>
                 </div>
@@ -305,6 +313,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={billingAddress.state}
                       onChange={(e) => handleBilling(e)}
+                      required={!checked}
                     />
                   </div>
                 </div>
@@ -325,6 +334,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={billingAddress.postal_code}
                       onChange={(e) => handleBilling(e)}
+                      required={!checked}
                     />
                   </div>
                 </div>
@@ -344,6 +354,7 @@ const CheckoutForm = () => {
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       value={billingAddress.phone}
                       onChange={(e) => handleBilling(e)}
+                      required={!checked}
                     />
                   </div>
                 </div>

@@ -150,6 +150,7 @@ const Login = () => {
                   placeholder="e.g: john@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="mt-6 w-full">
@@ -167,6 +168,7 @@ const Login = () => {
                     className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
                   <div
                     onClick={() => setShowPassword(!showPassword)}

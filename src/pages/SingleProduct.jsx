@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from "../slices/cartSlice";
 import ReviewList from "../components/reviews/ReviewList";
 import ReviewForm from "../components/reviews/ReviewForm";
+import useAuth from "../hooks/useAuth";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -19,6 +20,7 @@ const SingleProduct = () => {
   const { document } = useFetchDocument("products", id);
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
+  const authenticated = useAuth();
 
   useEffect(() => {
     setProduct(document);
@@ -60,7 +62,9 @@ const SingleProduct = () => {
 
                   <div className="mt-3">
                     <h2 className="sr-only">Product information</h2>
-                    <p className="text-3xl text-gray-900">${(product.price).toFixed(2)}</p>
+                    <p className="text-3xl text-gray-900">
+                      ${product.price.toFixed(2)}
+                    </p>
                   </div>
 
                   {/* Reviews */}
@@ -122,7 +126,7 @@ const SingleProduct = () => {
                   </section>
                 </div>
 
-                <ReviewForm productId={product.id} />
+                {authenticated && <ReviewForm productId={product.id} />}
 
                 <ReviewList product={product} />
               </div>
